@@ -16,9 +16,18 @@ public class NormalChargeWay implements ChargeWay {
     @Override
     public int calculatePoints(List<Goods> goods) {
         int points = 0;
+        int totalPrice = 0;
         for (Goods gd : goods) {
-
-            points += gd.getPrice();
+            if (totalPrice+gd.getPrice()>1000&&totalPrice<=1000) {
+                points =1000+ (gd.getPrice()-1000)/20;
+            }
+            else if (totalPrice>1000){
+                points+=gd.getPrice()/20;
+            }
+            else {
+                points += gd.getPrice();
+            }
+            totalPrice+=gd.getPrice();
         }
         return points;
     }

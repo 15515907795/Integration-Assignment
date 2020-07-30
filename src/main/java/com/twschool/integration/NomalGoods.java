@@ -1,5 +1,5 @@
 package com.twschool.integration;
 
 public enum  NomalGoods implements GoodsType{
-    SHAMPOO,WASHWHEEL,BASKETBALL,FOOTBALL
+    SHAMPOO,WASHWHEEL,BASKETBALL,FOOTBALL,FRIDGE
 }

@@ -16,8 +16,17 @@ public class PromotionChargeWay implements ChargeWay {
     @Override
     public int calculatePoints(List<Goods> goods) {
         int points = 0;
+        int totalPrice = 0;
         for (Goods gd : goods) {
-            points += gd.getPrice() * 2;
+            if (totalPrice+gd.getPrice()>1000&&totalPrice<=1000) {
+                points =1000*2+ gd.getPrice()-1000;
+            }
+            else if (totalPrice>1000) {
+                points += gd.getPrice();
+            }else {
+                points += gd.getPrice() * 2;
+            }
+            totalPrice+=gd.getPrice();
         }
         return points;
     }
